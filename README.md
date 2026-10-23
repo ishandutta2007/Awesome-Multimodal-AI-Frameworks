@@ -64,7 +64,7 @@ The following table benchmarks commercial cloud providers and managed SaaS APIs 
 
 ## 🚀 Top Open-Source Multimodal AI Frameworks
 
-Curated open-source projects, serving runtimes, and foundation model libraries, **sorted by GitHub Stars count (descending)**. Every project includes a live star badge linking directly to its stargazers.
+Curated open-source projects, serving runtimes, and foundation model libraries, **sorted by GitHub_Stars_Count (descending)**. Every project includes a live Stars_Badge linking directly to its stargazers.
 
 ### 1. [OpenBMB / MiniCPM-V](https://github.com/OpenBMB/MiniCPM-V) [![Stars](https://img.shields.io/github/stars/OpenBMB/MiniCPM-V?style=social&color=white)](https://github.com/OpenBMB/MiniCPM-V/stargazers) 📱
 - **Primary Focus**: On-Device Multimodal Large Language Models (See, Hear, and Speak)
