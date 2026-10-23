@@ -1,6 +1,6 @@
 # Awesome-Multimodal-AI-Frameworks
 
-# Top Multimodal AI Frameworks Ecosystem
+## Top Multimodal AI Frameworks Ecosystem
 
 **Curated List of SaaS Products & Open-Source GitHub Projects**  
 *Focused on Any-to-Any Serving, Agent-Native Runtimes & Multimodal Orchestration*  
