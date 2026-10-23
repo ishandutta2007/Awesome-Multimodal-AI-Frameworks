@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a13" />
+      <stop offset="45%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+
+    <radialGradient id="ambient-cyan" cx="20%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="ambient-purple" cx="80%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="cyber-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" stroke-opacity="0.3" />
+    </pattern>
+
+    <!-- Glow Filter -->
+    <filter id="glow-light" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      @keyframes flowDash {
+        0% { stroke-dashoffset: 200; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.75; transform: scale(1.08); }
+      }
+      @keyframes nodeFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+      }
+      @keyframes beaconScan {
+        0% { transform: translateX(0); opacity: 0; }
+        50% { opacity: 0.8; }
+        100% { transform: translateX(800px); opacity: 0; }
+      }
+
+      .flow-line {
+        stroke-dasharray: 8 12;
+        animation: flowDash 12s linear infinite;
+      }
+      .flow-line-fast {
+        stroke-dasharray: 6 10;
+        animation: flowDash 6s linear infinite;
+      }
+      .pulsing-orb {
+        transform-origin: center;
+        animation: pulseGlow 5s ease-in-out infinite;
+      }
+      .node-float-1 {
+        animation: nodeFloat 4s ease-in-out infinite;
+      }
+      .node-float-2 {
+        animation: nodeFloat 4.6s ease-in-out infinite 0.7s;
+      }
+      .node-float-3 {
+        animation: nodeFloat 5.2s ease-in-out infinite 1.4s;
+      }
+      .title-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .subtitle-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+      }
+      .pill-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.6px;
+      }
+    </style>
+  </defs>
+
+  <!-- 1. Background Layers -->
+  <rect width="1200" height="380" fill="url(#bg-grad)" rx="16" />
+  <rect width="1200" height="380" fill="url(#cyber-grid)" rx="16" />
+
+  <!-- 2. Dynamic Ambient Orbs (strictly background) -->
+  <circle cx="240" cy="110" r="180" fill="url(#ambient-cyan)" class="pulsing-orb" />
+  <circle cx="960" cy="270" r="210" fill="url(#ambient-purple)" class="pulsing-orb" />
+
+  <!-- 3. Animated Connection Flows (background data pipelines) -->
+  <g opacity="0.45">
+    <!-- Curved flow connecting modalities to runtime core -->
+    <path d="M 120 70 C 350 40, 480 120, 600 120 C 720 120, 850 40, 1080 70" fill="none" stroke="#38bdf8" stroke-width="1.8" class="flow-line" />
+    <path d="M 120 310 C 350 340, 480 260, 600 260 C 720 260, 850 340, 1080 310" fill="none" stroke="#c084fc" stroke-width="1.8" class="flow-line-fast" />
+    <path d="M 100 190 L 1100 190" fill="none" stroke="#475569" stroke-width="1" stroke-dasharray="4 6" opacity="0.4" />
+  </g>
+
+  <!-- 4. Subtle Side Modality Anchors (Floating in background corners) -->
+  <g opacity="0.65" class="node-float-1">
+    <circle cx="90" cy="110" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="90" y="114" fill="#38bdf8" font-size="11" text-anchor="middle" font-family="sans-serif" font-weight="700">TXT</text>
+  </g>
+  <g opacity="0.65" class="node-float-2">
+    <circle cx="70" cy="230" r="16" fill="#0f172a" stroke="#818cf8" stroke-width="1.5" />
+    <text x="70" y="234" fill="#818cf8" font-size="11" text-anchor="middle" font-family="sans-serif" font-weight="700">VIS</text>
+  </g>
+  <g opacity="0.65" class="node-float-3">
+    <circle cx="1110" cy="110" r="16" fill="#0f172a" stroke="#c084fc" stroke-width="1.5" />
+    <text x="1110" y="114" fill="#c084fc" font-size="11" text-anchor="middle" font-family="sans-serif" font-weight="700">AUD</text>
+  </g>
+  <g opacity="0.65" class="node-float-1">
+    <circle cx="1130" cy="230" r="16" fill="#0f172a" stroke="#34d399" stroke-width="1.5" />
+    <text x="1130" y="234" fill="#34d399" font-size="11" text-anchor="middle" font-family="sans-serif" font-weight="700">ACT</text>
+  </g>
+
+  <!-- 5. Decorative Outer Border -->
+  <rect x="1" y="1" width="1198" height="378" rx="16" fill="none" stroke="url(#primary-glow)" stroke-width="1.5" opacity="0.7" />
+
+  <!-- 6. FOREGROUND: Title, Subtitle, & Topic Badges (Clean, unobstructed, high contrast) -->
+  <!-- Top Category Tag -->
+  <g transform="translate(600, 72)">
+    <rect x="-170" y="-16" width="340" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="-146" cy="0" r="5" fill="#38bdf8" />
+    <text x="10" y="5" fill="#38bdf8" font-size="12" text-anchor="middle" font-family="sans-serif" font-weight="700" letter-spacing="1.2">CURATED ECOSYSTEM DIRECTORY</text>
+  </g>
+
+  <!-- Main Hero Title -->
+  <g transform="translate(600, 155)">
+    <!-- Ambient Shadow for Title Legibility -->
+    <text x="0" y="0" text-anchor="middle" fill="#000000" opacity="0.7" font-size="44" class="title-text" filter="url(#glow-light)">Awesome Multimodal AI Frameworks</text>
+    <text x="0" y="0" text-anchor="middle" fill="#ffffff" font-size="44" class="title-text">Awesome Multimodal AI Frameworks</text>
+  </g>
+
+  <!-- Subtitle -->
+  <g transform="translate(600, 202)">
+    <text x="0" y="0" text-anchor="middle" fill="#94a3b8" font-size="18" class="subtitle-text">
+      Any-to-Any Serving Runtimes • Agent-Native Orchestration • World Models • Unified VLMs
+    </text>
+  </g>
+
+  <!-- Bottom Interactive Modality Pills (Foreground) -->
+  <g transform="translate(600, 290)">
+    <!-- Pill 1: Vision-Language -->
+    <g transform="translate(-360, 0)">
+      <rect x="-65" y="-18" width="130" height="36" rx="18" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" opacity="0.95" />
+      <text x="0" y="5" fill="#e2e8f0" text-anchor="middle" class="pill-text">👁️ Vision-LLMs</text>
+    </g>
+
+    <!-- Pill 2: Voice & Audio -->
+    <g transform="translate(-180, 0)">
+      <rect x="-65" y="-18" width="130" height="36" rx="18" fill="#1e293b" stroke="#818cf8" stroke-width="1.2" opacity="0.95" />
+      <text x="0" y="5" fill="#e2e8f0" text-anchor="middle" class="pill-text">🎙️ Speech &amp; Audio</text>
+    </g>
+
+    <!-- Pill 3: Video & Motion -->
+    <g transform="translate(0, 0)">
+      <rect x="-65" y="-18" width="130" height="36" rx="18" fill="#1e293b" stroke="#a855f7" stroke-width="1.2" opacity="0.95" />
+      <text x="0" y="5" fill="#e2e8f0" text-anchor="middle" class="pill-text">🎬 Video Gen</text>
+    </g>
+
+    <!-- Pill 4: World & Robotics -->
+    <g transform="translate(180, 0)">
+      <rect x="-65" y="-18" width="130" height="36" rx="18" fill="#1e293b" stroke="#ec4899" stroke-width="1.2" opacity="0.95" />
+      <text x="0" y="5" fill="#e2e8f0" text-anchor="middle" class="pill-text">🤖 World &amp; Action</text>
+    </g>
+
+    <!-- Pill 5: Omni Serving -->
+    <g transform="translate(360, 0)">
+      <rect x="-65" y="-18" width="130" height="36" rx="18" fill="#1e293b" stroke="#10b981" stroke-width="1.2" opacity="0.95" />
+      <text x="0" y="5" fill="#e2e8f0" text-anchor="middle" class="pill-text">⚡ Omni Serving</text>
+    </g>
+  </g>
+
+</svg>
